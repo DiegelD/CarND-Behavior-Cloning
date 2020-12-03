@@ -31,11 +31,11 @@ The goals / steps of this project are the following:
 
 ## 1. Data collection
 
-To collect the data, the vehicle is driving for one cource in the simulation. To extend the collect able data, the cource is recorded with three comeras. The mounting posistions are seen in Fig. 1.1.  To train the model later, every image sequence is saved the current steering angle. So that the model can learn the posistion relativ to the steering angle. To compensate the offset between the side cameras and the steering angle, seen on the top right side if Fig. 1.1,  an addiational offset ```+_20%```. 
+To collect the data, the vehicle is driving for one cource in the simulation. To extend the collect able data, the cource is recorded with three comeras. The mounting posistions are seen in Fig. 1.1.  To train the model later, every image sequence is saved the current steering angle. So that the model can learn the posistion relativ to the steering angle. To compensate the offset between the side cameras and the steering angle, seen on the top right side if Fig. 1.1,  an addiational offset ```+-20%```. 
 
 
 <figure>
- <img src="./examples/Kamera_Offset_png'.png" width="650" alt="data amout plot" />
+ <img src="./examples/Kamera_Offset_png'.jpg" width="550" alt="data amout plot" />
  <figcaption>
  <p></p> 
  <p style="text-align: center;"> Fig. 1.1: Visualization camera positions</p> 
