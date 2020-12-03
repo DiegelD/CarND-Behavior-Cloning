@@ -35,7 +35,7 @@ To collect the data, the vehicle is driving for one cource in the simulation. To
 
 
 <figure>
- <img src="./examples/Kamera_Offset_png.jpg" width="550" alt="data amout plot" />
+ <img src="./examples/Kamera_Offset_png.jpg" width="830" alt="data amout plot" />
  <figcaption>
  <p></p> 
  <p style="text-align: center;"> Fig. 1.1: Visualization camera positions</p> 
@@ -44,7 +44,7 @@ To collect the data, the vehicle is driving for one cource in the simulation. To
  <p></p>
 
 <figure>
- <img src="./examples/LeftCenterRightImage.jpg" width="650" alt="data amout plot" />
+ <img src="./examples/LeftCenterRightImage.jpg" width="830" alt="data amout plot" />
  <figcaption>
  <p></p> 
  <p style="text-align: center;"> Fig. 1.2: Data Collegetion</p> 
@@ -55,7 +55,7 @@ To collect the data, the vehicle is driving for one cource in the simulation. To
 The data argumentations process and preprocessing can be seen in Fig. 1.3. The data gets extended by flipping the images and blurring the images. so that in the end 1/3 of the data is from the trac collected, 1/3 fliped and the rest blurred. This is done due to generalize the model more. To excelerate the training process, the unsecessary parts of the image that contain any relevant inforamtion get  croppd. So that the model have to process less image data. Seen on the very right of Fig 1.3.
 
 <figure>
- <img src="./examples/PreProcess.jpg" width="650" alt="data amout plot" />
+ <img src="./examples/PreProcess.jpg" width="830" alt="data amout plot" />
  <figcaption>
  <p></p> 
  <p style="text-align: center;"> Fig. 1.3: Data Collegetion</p> 
@@ -73,7 +73,7 @@ My final model results were:
 **Architecture** As archtitecture has been choosen the architecture from the Nvidia End to End Learning [Paper](https://arxiv.org/abs/1604.07316). The use case is the same and there for its convinient to beginn with the same aritecture and than see if the net have to be modifiyed. But since its the same use case and the same data no big modifications have to be done. As modification a cropped layer and three dropout layers are added at the fully conntected layers. Fig. 
 
 <figure>
- <img src="./examples/Architecture.jpg" width="850" alt="data amout plot" />
+ <img src="./examples/Architecture.jpg" width="830" alt="data amout plot" />
  <figcaption>
  <p></p> 
  <p style="text-align: center;"> Fig. 2.1: Net</p> 
@@ -94,7 +94,7 @@ The model is trained with following parameters:
 The Training too place on an external GPU. Therefore the Batch Size have been optimaized to the highes possible number, before the Computer crashes, due the face its running out of memory. The Dropuout rate is the lowest recomended but it leeds still to an ligth overfitting since validation and training accourancy divergent, seen in Fig. 2.2. This also shows us that the learning rate could be reducecould, so that the net is more generelazing.
 
 <figure>
- <img src="./examples/PreProcess.jpg" width="850" alt="data amout plot" />
+ <img src="./examples/PreProcess.jpg" width="830" alt="data amout plot" />
  <figcaption>
  <p></p> 
  <p style="text-align: center;"> Fig. 2.2: Training and Validation accourancy.</p> 
