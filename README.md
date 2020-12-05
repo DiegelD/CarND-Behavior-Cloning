@@ -38,7 +38,7 @@ To collect the data, the vehicle is driving for one course in the simulation. To
 
 
 <figure>
- <img src="./examples/Kamera_Offset_png.jpg" width="830" alt="data amout plot" />
+ <img src="./examples/Kamera_Offset.jpg" width="830" alt="data amout plot" />
  <figcaption>
  <p></p> 
  <p style="text-align: center;"> Fig. 1.1: Visualization camera positions</p> 
