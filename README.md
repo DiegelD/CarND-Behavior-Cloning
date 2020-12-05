@@ -4,34 +4,37 @@
 
 Overview
 ---
-This repository contains the file for the Behavioral Cloning Project.
+<figure>
+ <img src="./examples/ScreenShot.png" width="830" alt="data amout plot" />
+ <figcaption>
+ <p></p> 
+ <p style="text-align: center;"> Fig: Autonomous Drive in the Simulator</p> 
+ </figcaption>
+</figure>
+ <p></p>
 
-In this project, i learned about deep neural networks and convolutional neural networks to clone driving behavior. I train, validate and test the neuronal network model using Keras. The model outputs a steering angle to an autonomous vehicle.
+In this project, i learned about deep neural networks and convolutional neural networks to clone driving behavior. I train, validate and test the neuronal network model using Keras. 
 
-In a provieded simulator data could be collected. The image data and steering angles from the data is used train a neural network and then use this model to drive the car autonomously around the track. Amazing.
-
-Following five files are stored in the repository:
+Following files are stored in the repository:
 
 * model.py (script used to create and train the model)
-* drive.py (script to drive the car - feel free to modify this file)
+* drive.py (script to drive the car)
+* video.py (script to crate the mp4 video from single recorded images)
 * model.h5 (a trained Keras model)
-* a report writeup file (either markdown or pdf)
-* video.mp4 (a video recording of your vehicle driving autonomously around the track for at least one full lap)
-
-This README file describes how to output the video in the "Details About Files In This Directory" section.
+* a report writeup file
+* video.mp4 (a video recording of your vehicle driving autonomously around the track)
+* SimulatroDrive_Cut.mp4 (video.mp4 in the simulator view, gives a better first impression)
 
 The Project
 ---
 The goals / steps of this project are the following:
-* Use the simulator to collect data of good driving behavior 
-* Design, train and validate a model that predicts a steering angle from image data
-* Use the model to drive the vehicle autonomously around the first track in the simulator. The vehicle should remain on the road for an entire loop around the track.
-* Summarize the results with a written report
-
+1. Use the simulator to collect data of good driving behavior 
+2. Design, train and validate a model that predicts a steering angle from image data
+3. Validation, use the model to drive the vehicle autonomously around the first track in the simulator.
 
 ## 1. Data collection
 
-To collect the data, the vehicle is driving for one cource in the simulation. To extend the collect able data, the cource is recorded with three comeras. The mounting posistions are seen in Fig. 1.1.  To train the model later, every image sequence is saved the current steering angle. So that the model can learn the posistion relativ to the steering angle. To compensate the offset between the side cameras and the steering angle, seen on the top right side if Fig. 1.1,  an addiational offset ```+-20%```. 
+To collect the data, the vehicle is driving for one course in the simulation. To extend the collect able data, the course is recorded with three cameras. The mounting positions are seen in Fig. 1.1.  To train the model later, every image sequence is saved the current steering angle. So that the model can learn the position relative to the steering angle. To compensate the offset between the side cameras and the steering angle, seen on the top right side if Fig. 1.1, an additional offset ```+-20%```
 
 
 <figure>
@@ -52,7 +55,7 @@ To collect the data, the vehicle is driving for one cource in the simulation. To
 </figure>
  <p></p>
 
-The data argumentations process and preprocessing can be seen in Fig. 1.3. The data gets extended by flipping the images and blurring the images. so that in the end 1/3 of the data is from the trac collected, 1/3 fliped and the rest blurred. This is done due to generalize the model more. To excelerate the training process, the unsecessary parts of the image that contain any relevant inforamtion get  croppd. So that the model have to process less image data. Seen on the very right of Fig 1.3.
+The data argumentations process and preprocessing can be seen in Fig. 1.3. The data gets extended by flipping the images and blurring the images. so that in the end 1/3 of the data is from the track collected, 1/3 flipped and the rest blurred. This is done due to generalize the model more. To accelerate the training process, the unnecessary parts of the image that contain any relevant information get cropped. So that the model has to process less image data. This is done with this simple line of code 'model.add(Cropping2D(cropping=(50,20), (0,0)))'
 
 <figure>
  <img src="./examples/PreProcess.jpg" width="830" alt="data amout plot" />
@@ -65,12 +68,15 @@ The data argumentations process and preprocessing can be seen in Fig. 1.3. The d
 
 ## 2. Model
 
+The model outputs a steering angle to an autonomous vehicle.
+
 My final model results were:
 * training set accuracy of 99.4%
 * validation set accuracy of 93.8%
 * test set accuracy of 91.9%
 
-**Architecture** As archtitecture has been choosen the architecture from the Nvidia End to End Learning [Paper](https://arxiv.org/abs/1604.07316). The use case is the same and there for its convinient to beginn with the same aritecture and than see if the net have to be modifiyed. But since its the same use case and the same data no big modifications have to be done. As modification a cropped layer and three dropout layers are added at the fully conntected layers. Fig. 
+**Architecture** As architecture has been chosen the architecture from the Nvidia End to End Learning [Paper](https://arxiv.org/abs/1604.07316). The use case is the same and there for its convenient to begin with the same architecture and then adapt if the net has to be modified. But since it’s the same use case and the same data no big modifications have to be done. As modification a cropped layer and three dropout layers are added at the fully connected layers. Fig. 
+
 
 <figure>
  <img src="./examples/Architecture.jpg" width="830" alt="data amout plot" />
@@ -89,26 +95,38 @@ The model is trained with following parameters:
 * dropout = 0.5
 * learning rate = 0.001
 * optimizer: AdamOptimizer
-* 20% data splite for validation
+* 20% data split for validation
 
-The Training too place on an external GPU. Therefore the Batch Size have been optimaized to the highes possible number, before the Computer crashes, due the face its running out of memory. The Dropuout rate is the lowest recomended but it leeds still to an ligth overfitting since validation and training accourancy divergent, seen in Fig. 2.2. This also shows us that the learning rate could be reducecould, so that the net is more generelazing.
+The Training too place on an external GPU. Therefore, the Batch Size have been optimized to the highest possible number, before the Computer crashes, due the face its running out of memory. The Dropout rate is the lowest recommended but it lead’s still to an light overfitting since validation and training accuracy divergent, seen in Fig. 2.2. This also shows us that the learning rate could be reduce could so that the net is more generalize.
 
 <figure>
  <img src="./examples/PreProcess.jpg" width="830" alt="data amout plot" />
  <figcaption>
  <p></p> 
- <p style="text-align: center;"> Fig. 2.2: Training and Validation accourancy.</p> 
+ <p style="text-align: center;"> Fig. 2.2: Training and Validation accurancy.</p> 
  </figcaption>
 </figure>
  <p></p>
 
 
-**Problem Solving Approach**  An iterativ approach have been taken. The model archtitecture obove have been choosen and it started by training the model with the data of one track and one round. After every of the following steps the training and validaion accurany have been alaysed as well as the autonomous drining perfomrance on the training. 
+**Problem Solving Approach** An iterative approach have been taken. The model architecture above has been chosen and it started by training the model with the data of one track and one round. After every of the following steps the training and validation accuracy have been analyzed as well as the autonomous driving performance on the training. 
 
 1. Then the learning rate was reduced due to high overfitting. 
-2. The training data was argumented, to reduce the overfitting. This increaced the validation accurancy a lot. But still the vehicle could not performe on autonomous track. 
-3. Including three dropout layer at the fully connected layer. This increaced the validation accurancy much more and let the vehicle drive the track autonomouly.
+2. The training data was augmented, to reduce the overfitting. This increased the validation accuracy a lot. But still the vehicle could not perform on autonomous track. 
+3. Including three dropout layers at the fully connected layer. This increased the validation accuracy much more and let the vehicle drive the track autonomously.
 
+## 3. Validation
+
+For the validation of the performance are two videos created from simulator:
+
+1. One video in the camera view of the vehicle. [Link](video.mp4)
+2. One video from the birth perspective with the data of the steering angle and the speed of the car. So the vehicle behavior can be better judged. [Link](SimulatorDrive_Cut.mp4)
+
+### Improvements:
+
+Additional Data from the second track should be recorded. This would lead to less overfitting, since more data is available. Also, to a higher generalization because more data qualify through more variance in the images. Therefore, also the artificial augmented data can be reduced. The suggestion would be to reduce the blurred data because the net is for this use case just trained for the simulator and there will be always a high image resolution available. From the engineering fundamentals: As accurate as necessary as imprecise as possible.
+
+---
 ### Dependencies
 This lab requires:
 
@@ -171,12 +189,4 @@ python video.py run1 --fps 48
 ```
 
 Will run the video at 48 FPS. The default FPS is 60.
-
-#### Why create a video
-
-1. It's been noted the simulator might perform differently based on the hardware. So if your model drives succesfully on your machine it might not on another machine (your reviewer). Saving a video is a solid backup in case this happens.
-2. You could slightly alter the code in `drive.py` and/or `video.py` to create a video of what your model sees after the image is processed (may be helpful for debugging).
-
-### Hint
-- Please keep in mind that training images are loaded in BGR colorspace using cv2 while drive.py load images in RGB to predict the steering angles.
 
