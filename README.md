@@ -13,7 +13,7 @@ Overview
 </figure>
  <p></p>
 
->In this project, i learned about deep neural networks and convolutional neural networks to clone driving behavior. I train, >validate and test the neuronal network model using Keras.
+**In this project, i learned about deep neural networks and convolutional neural networks to clone driving behavior. I train, validate and test the neuronal network model using Keras.**
 
 Following files are stored in the repository:
 
