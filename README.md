@@ -5,7 +5,7 @@
 Overview
 ---
 <figure>
- <img src="./examples/ScreenShot.jpg" width="830" alt="data amout plot" />
+ <img src="./examples/ScreenShot_1.jpg" width="830" alt="data amout plot" />
  <figcaption>
  <p></p> 
  <p style="text-align: center;"> Fig: Autonomous Drive in the Simulator</p> 
