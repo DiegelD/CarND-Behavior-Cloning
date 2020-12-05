@@ -31,6 +31,7 @@ The goals / steps of this project are the following:
 1. Use the simulator to collect data of good driving behavior 
 2. Design, train and validate a model that predicts a steering angle from image data
 3. Validation, use the model to drive the vehicle autonomously around the first track in the simulator.
+4. Possible improvements
 
 ## 1. Data collection
 
@@ -122,7 +123,7 @@ For the validation of the performance are two videos created from simulator:
 1. One video in the camera view of the vehicle. [Link](video.mp4)
 2. One video from the birth perspective with the data of the steering angle and the speed of the car. So the vehicle behavior can be better judged. [Link](SimulatorDrive_Cut.mp4)
 
-### Improvements:
+##4. Improvements
 
 Additional Data from the second track should be recorded. This would lead to less overfitting, since more data is available. Also, to a higher generalization because more data qualify through more variance in the images. Therefore, also the artificial augmented data can be reduced. The suggestion would be to reduce the blurred data because the net is for this use case just trained for the simulator and there will be always a high image resolution available. From the engineering fundamentals: As accurate as necessary as imprecise as possible.
 
