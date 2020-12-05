@@ -123,7 +123,7 @@ For the validation of the performance are two videos created from simulator:
 1. One video in the camera view of the vehicle. [Link](video.mp4)
 2. One video from the birth perspective with the data of the steering angle and the speed of the car. So the vehicle behavior can be better judged. [Link](SimulatorDrive_Cut.mp4)
 
-##4. Improvements
+## 4. Improvements
 
 Additional Data from the second track should be recorded. This would lead to less overfitting, since more data is available. Also, to a higher generalization because more data qualify through more variance in the images. Therefore, also the artificial augmented data can be reduced. The suggestion would be to reduce the blurred data because the net is for this use case just trained for the simulator and there will be always a high image resolution available. From the engineering fundamentals: As accurate as necessary as imprecise as possible.
 
