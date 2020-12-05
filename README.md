@@ -13,7 +13,7 @@ Overview
 </figure>
  <p></p>
 
-In this project, i learned about deep neural networks and convolutional neural networks to clone driving behavior. I train, validate and test the neuronal network model using Keras. 
+>In this project, i learned about deep neural networks and convolutional neural networks to clone driving behavior. I train, >validate and test the neuronal network model using Keras.
 
 Following files are stored in the repository:
 
@@ -55,7 +55,7 @@ To collect the data, the vehicle is driving for one course in the simulation. To
 </figure>
  <p></p>
 
-The data argumentations process and preprocessing can be seen in Fig. 1.3. The data gets extended by flipping the images and blurring the images. so that in the end 1/3 of the data is from the track collected, 1/3 flipped and the rest blurred. This is done due to generalize the model more. To accelerate the training process, the unnecessary parts of the image that contain any relevant information get cropped. So that the model has to process less image data. This is done with this simple line of code 'model.add(Cropping2D(cropping=(50,20), (0,0)))'
+The data argumentations process and preprocessing can be seen in Fig. 1.3. The data gets extended by flipping the images and blurring the images. so that in the end 1/3 of the data is from the track collected, 1/3 flipped and the rest blurred. This is done due to generalize the model more. To accelerate the training process, the unnecessary parts of the image that contain any relevant information get cropped. So that the model has to process less image data. This is done with this simple line of code `model.add(Cropping2D(cropping=(50,20), (0,0)))`
 
 <figure>
  <img src="./examples/PreProcess.jpg" width="830" alt="data amout plot" />
