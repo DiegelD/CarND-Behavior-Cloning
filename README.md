@@ -32,7 +32,7 @@ Following files are stored in the repository:
 
 The Project
 ---
-The goals / steps of this project are the following:
+The steps of this project are the following:
 1. Use the simulator to collect data of good driving behavior 
 2. Design, train and validate a model that predicts a steering angle from image data
 3. Validation, use the model to drive the vehicle autonomously around the first track in the simulator.
