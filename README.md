@@ -16,7 +16,7 @@ Overview
 Abstract
 ---
 **In this project, i learned about deep neural networks and convolutional neural networks to clone driving behavior. I train, validate and test the neuronal network model using Keras.**
-An End to End learning approach is used to teach a car to drive a certain circuit via Behavior Cloning. First the circuit is manual driven and with three front cameras recorded. Then the raw image data are pre-processed and used to train a Convolutional Neural (CNN) that outputs the direct stringing commands. 
+An End to End learning approach is used to teach the car to drive a certain circuit. First the circuit is manual driven and recorded with three front cameras. Then the raw image data are pre-processed and used to train a Convolutional Neural Network (CNN) that outputs the direct steering commands.
 The project is inspired by this Nvidia [paper](https://arxiv.org/pdf/1604.07316.pdf).
 
 
