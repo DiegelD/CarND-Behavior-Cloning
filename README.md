@@ -13,7 +13,13 @@ Overview
 </figure>
  <p></p>
 
+Abstract
+---
 **In this project, i learned about deep neural networks and convolutional neural networks to clone driving behavior. I train, validate and test the neuronal network model using Keras.**
+An End to End learning approach is used to teach a car to drive a certain circuit via Behavior Cloning. 
+First raw image data from three front cameras are used to train a Convolutional Neural Network (CNN) which outputs the direct stringing commands.
+This project is inspired by this Nvidia [paper](https://arxiv.org/pdf/1604.07316.pdf).
+
 
 Following files are stored in the repository:
 
@@ -190,4 +196,3 @@ python video.py run1 --fps 48
 ```
 
 Will run the video at 48 FPS. The default FPS is 60.
-
